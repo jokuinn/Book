@@ -1,23 +1,16 @@
 package com.epam.books.logic.specification;
 
 import com.epam.books.data.Book;
+import com.epam.books.data.DataExeption;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublishingSpecification implements Specification<String> {
+public class PublishingSpecification extends AbstractSpecification<String> {
 
     @Override
-    public List<Book> find(List<Book> books, String value) {
-        List<Book> searchedBooks = new ArrayList<>();
-
-        for (Book book: books){
-
-            String publishingBook = book.getPublishing();
-            if (publishingBook.equalsIgnoreCase(value)){
-                searchedBooks.add(book);
-            }
-        }
-        return searchedBooks;
+    public boolean matchesField(Book book, String value) throws DataExeption {
+        String publishing = book.getPublishing();
+        return publishing.equalsIgnoreCase(value);
     }
 }

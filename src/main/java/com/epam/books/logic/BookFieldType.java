@@ -1,6 +1,6 @@
 package com.epam.books.logic;
 
-public enum FieldBook {
+public enum BookFieldType {
     TITLE,
     PUBLISHING,
     AUTHOR,

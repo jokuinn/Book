@@ -1,22 +1,16 @@
 package com.epam.books.logic.specification;
 
 import com.epam.books.data.Book;
+import com.epam.books.data.DataExeption;
 
-import java.util.ArrayList;
-import java.util.List;
+public class YearSpecification extends AbstractSpecification<Integer> {
 
-public class YearSpecification implements Specification<Integer> {
     @Override
-    public List<Book> find(List<Book> books, Integer value) {
-        List<Book> searchedBooks = new ArrayList<>();
-
-        for (Book book: books){
-
-            Integer yearBook = book.getYear();
-            if (yearBook.equals(value)){
-                searchedBooks.add(book);
-            }
+    public boolean matchesField(Book book, Integer value) throws DataExeption {
+        int year = book.getYear();
+        if (value == null){
+            throw new DataExeption("null value");
         }
-        return searchedBooks;
+        return value.equals(year);
     }
 }

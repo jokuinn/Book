@@ -1,10 +1,9 @@
 package com.epam.books.logic.specification;
 
-import com.epam.books.logic.FieldBook;
-import com.epam.books.logic.specification.Specification;
+import com.epam.books.logic.BookFieldType;
 
 public class SpecificationFactory {
-    public Specification create(FieldBook fieldBook){
+    public AbstractSpecification create(BookFieldType fieldBook){
         switch (fieldBook){
             case TITLE:
                 return new TitleSpecification();

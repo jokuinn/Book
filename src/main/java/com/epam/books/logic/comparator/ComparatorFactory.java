@@ -1,9 +1,9 @@
 package com.epam.books.logic.comparator;
 
-import com.epam.books.logic.FieldBook;
+import com.epam.books.logic.BookFieldType;
 
 public class ComparatorFactory {
-    public Comparator create(FieldBook fieldBook){
+    public Comparator create(BookFieldType fieldBook){
 
         switch (fieldBook){
             case TITLE:

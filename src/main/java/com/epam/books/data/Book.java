@@ -1,7 +1,5 @@
 package com.epam.books.data;
 
-import java.util.ArrayList;
-
 public class Book {
     String title;
     int year;
@@ -33,6 +31,24 @@ public class Book {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Book)) {
+            return false;
+        }
+
+        Book book = (Book) obj;
+
+        if (getYear() != book.getYear()) {
+            return false;
+        }
+        if (!getAuthor().equals(book.getAuthor())) {
+            return false;
+        }
+        if (!getTitle().equals(book.getTitle())) {
+            return false;
+        }
+        return getPublishing().equals(book.getPublishing());
     }
 }

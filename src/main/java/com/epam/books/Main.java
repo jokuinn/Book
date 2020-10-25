@@ -2,7 +2,7 @@ package com.epam.books;
 
 import com.epam.books.data.DataExeption;
 import com.epam.books.logic.BookDao;
-import com.epam.books.logic.FieldBook;
+import com.epam.books.logic.BookFieldType;
 import org.apache.log4j.Logger;
 
 public class Main {
@@ -21,16 +21,23 @@ public class Main {
 
     private static void process() throws DataExeption {
         LOGGER.info("start Main");
-        //get data
+
+        LOGGER.info("Create BookDao and add books");
         BookDao bookDao = new BookDao();
-
         bookDao.addBooks();
-        bookDao.addBook(BookDao.METRO);
-        bookDao.removeBook(BookDao.HARRY_POTTER);
-        bookDao.sortBooksByTag(FieldBook.AUTHOR);
 
+        LOGGER.info("Add book Metro");
+        bookDao.addBook(BookDao.METRO);
+
+        LOGGER.info("Remove book");
+        bookDao.removeBook(BookDao.HARRY_POTTER);
+
+        LOGGER.info("Sort books by author");
+        bookDao.sortByTag(BookFieldType.AUTHOR);
+
+        LOGGER.info("Find book by tag year");
         int searchYear = 1997;
-        bookDao.findByTag(FieldBook.YEAR, searchYear);
+        bookDao.findByTag(BookFieldType.YEAR, searchYear);
 
         LOGGER.info("finish");
 
