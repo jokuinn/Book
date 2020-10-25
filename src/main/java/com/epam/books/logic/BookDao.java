@@ -54,8 +54,7 @@ public class BookDao implements Dao {
 
     @Override
     public void sortByTag(BookFieldType fieldBook){
-        ComparatorFactory factory = new ComparatorFactory();
-        Comparator comparator = factory.create(fieldBook);
+        Comparator<Book> comparator = comparatorfactory.create(fieldBook);
         Collections.sort(books, comparator);
     }
 

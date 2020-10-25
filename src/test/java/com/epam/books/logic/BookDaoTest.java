@@ -7,8 +7,6 @@ import org.junit.Test;
 
 public class BookDaoTest {
     private static final Book FIRST_BOOK = new Book("firstTitle", 1999, "firstAuthor", "firstPublishing");
-    private static final Book SECOND_BOOK = new Book("secondTitle", 1999, "secondAuthor", "secondPublishing");
-
     @Test
     public void testAddBookShouldAddBook() throws DataExeption{
         //given
